@@ -5,8 +5,6 @@
   "license": "MIT",
   "scripts": {
     "build": "tsc",
-    "prod": "npx run build-ts",
-    "postinstall": "npm run build-ts",
     "dev": "NODE_ENV=development npx nodemon",
     "start": "NODE_ENV=production node --optimize_for_size --max_old_space_size=460 dist/server.js"
   },
