@@ -4,7 +4,7 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "build-ts": "tsc",
+    "build": "tsc",
     "prod": "npx run build-ts",
     "postinstall": "npm run build-ts",
     "dev": "NODE_ENV=development npx nodemon",
