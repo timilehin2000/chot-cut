@@ -33,7 +33,7 @@ export const verifyTransaction = async (req: Request, res: Response) => {
       environment
     );
 
-    console.log(appReceipt);
+    // console.log(appReceipt);
 
     const receiptUtil = new ReceiptUtility();
 
