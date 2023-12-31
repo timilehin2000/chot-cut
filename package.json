@@ -4,9 +4,11 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "build": "tsc",
+    "build-ts": "tsc",
+    "prod": "npx run build-ts",
+    "postinstall": "npm run build-ts",
     "dev": "NODE_ENV=development npx nodemon",
-    "start": "NODE_ENV=production node --optimize_for_size --max_old_space_size=460 dist/server.js"
+    "start": "NODE_ENV=production node --optimize_for_size --max_old_space_size=460 dist/app.js"
   },
   "devDependencies": {
     "@types/cors": "^2.8.17",
