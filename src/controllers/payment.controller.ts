@@ -37,11 +37,13 @@ export const verifyTransaction = async (req: Request, res: Response) => {
 
     const receiptUtil = new ReceiptUtility();
 
+    console.log("step 1");
+
     const transactionId =
       receiptUtil.extractTransactionIdFromAppReceipt(appReceipt);
-
+    console.log("step 2");
     console.log(transactionId);
-
+    console.log("step 3");
     if (transactionId != null) {
       const transactionHistoryRequest: TransactionHistoryRequest = {
         sort: Order.ASCENDING,
