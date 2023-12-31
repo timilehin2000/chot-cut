@@ -40,6 +40,8 @@ export const verifyTransaction = async (req: Request, res: Response) => {
     const transactionId =
       receiptUtil.extractTransactionIdFromAppReceipt(appReceipt);
 
+    console.log(transactionId);
+
     if (transactionId != null) {
       const transactionHistoryRequest: TransactionHistoryRequest = {
         sort: Order.ASCENDING,
