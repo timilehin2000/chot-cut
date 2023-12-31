@@ -6,7 +6,7 @@
   "scripts": {
     "build": "tsc",
     "dev": "NODE_ENV=development npx nodemon",
-    "start": "NODE_ENV=production node --optimize_for_size --max_old_space_size=460 ./dist/server.js"
+    "start": "NODE_ENV=production node --optimize_for_size --max_old_space_size=460 dist/server.js"
   },
   "devDependencies": {
     "@types/cors": "^2.8.17",
