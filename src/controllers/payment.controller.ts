@@ -51,7 +51,7 @@ export const verifyTransaction = async (req: Request, res: Response) => {
 
       do {
         const revisionToken =
-          response !== null && response.revision !== null
+          response !== null && response.revision !== undefined
             ? response.revision
             : null;
         response = await client.getTransactionHistory(

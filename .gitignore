@@ -1,5 +1,4 @@
-/node_modules
-/dist
-.env.*
 .env
-.github/
+.vscode
+node_modules/
+dist/
