@@ -39,48 +39,48 @@ export const verifyTransaction = async (req: Request, res: Response) => {
 
     console.log("step 1");
 
-    try {
-      const transactionId =
-        receiptUtil.extractTransactionIdFromAppReceipt(appReceipt);
+    // try {
+    //   const transactionId =
+    //     receiptUtil.extractTransactionIdFromAppReceipt(appReceipt);
 
-      console.log("yaaaay");
-      console.log(transactionId);
-    } catch (err) {
-      console.log("error detected");
-      console.log(err);
-    }
-
-    // console.log("step 2");
-    // console.log(transactionId);
-    // console.log("step 3");
-    // if (transactionId != null) {
-    //   const transactionHistoryRequest: TransactionHistoryRequest = {
-    //     sort: Order.ASCENDING,
-    //     revoked: false,
-    //     productTypes: [ProductType.AUTO_RENEWABLE],
-    //   };
-
-    //   console.log(transactionHistoryRequest);
-    //   let response: HistoryResponse | null = null;
-    //   let transactions: string[] = [];
-
-    //   do {
-    //     const revisionToken =
-    //       response !== null && response.revision !== undefined
-    //         ? response.revision
-    //         : null;
-    //     response = await client.getTransactionHistory(
-    //       transactionId,
-    //       revisionToken,
-    //       transactionHistoryRequest
-    //     );
-    //     if (response.signedTransactions) {
-    //       transactions = transactions.concat(response.signedTransactions);
-    //     }
-    //   } while (response.hasMore);
-    //   console.log(transactions);
-    //   return res.status(200).json({ status: true, message: response });
+    //   console.log("yaaaay");
+    //   console.log(transactionId);
+    // } catch (err) {
+    //   console.log("error detected");
+    //   console.log(err);
     // }
+
+    const transactionId =
+      "07e0c5a28e5c9b7b760367d9c7e78fd3f17272b896817ebcfe8549803d4bebc2";
+
+    if (transactionId != null) {
+      const transactionHistoryRequest: TransactionHistoryRequest = {
+        sort: Order.ASCENDING,
+        revoked: false,
+        productTypes: [ProductType.AUTO_RENEWABLE],
+      };
+
+      console.log(transactionHistoryRequest);
+      let response: HistoryResponse | null = null;
+      let transactions: string[] = [];
+
+      do {
+        const revisionToken =
+          response !== null && response.revision !== undefined
+            ? response.revision
+            : null;
+        response = await client.getTransactionHistory(
+          transactionId,
+          revisionToken,
+          transactionHistoryRequest
+        );
+        if (response.signedTransactions) {
+          transactions = transactions.concat(response.signedTransactions);
+        }
+      } while (response.hasMore);
+      console.log(transactions);
+      return res.status(200).json({ status: true, message: response });
+    }
   } catch (err) {}
 };
 
